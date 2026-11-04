@@ -4,6 +4,25 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.8.7 · Steam API-key scam warning
+
+*5 November 2026*
+
+A warning for one of the most effective Steam scams, which no blocklist can catch because it happens on Steam’s own website.
+
+### Fixed
+
+- Warning pages (fake sites, scams) now show a warning sign in the tab instead of the blocked site’s own logo. 0.8.6 said this was fixed, but Warden still looked up a logo for the address; now it really is.
+- Settings → VPN: the "Use a VPN" and "VPN is off" cards still sat on top of each other.
+- Settings → About: in copies that can’t update themselves, the automatic-updates switch now shows off, not a dimmed "on".
+- Games tab with no games: the free games now sit right under the message, centred, instead of far below it.
+- Setup: the text lines up with the buttons again, and long steps fade out above the buttons instead of running into the line.
+- Importing from another browser now shows each browser’s own icon instead of letters like "GC" and "ME".
+
+### Security
+
+- Opening Steam’s "Web API key" page now shows a warning first. Scammers talk people into creating a key (for a "trade bot", a "skin site login" or "to verify your account"), then use it to quietly swap their trade offers and take their items. The page is real Steam, so phishing lists can’t stop it. Developers can carry on with one click.
+
 ## 0.8.6 · Fake virus warnings stopped
 
 *5 November 2026*

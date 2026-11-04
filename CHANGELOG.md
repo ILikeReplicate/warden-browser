@@ -4,6 +4,34 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.8.6 · Fake virus warnings stopped
+
+*5 November 2026*
+
+Warden now catches tech-support scams (fake "your PC is locked, call Microsoft" pages), plus a batch of fixes found while testing Warden overnight in a throwaway copy of Windows.
+
+### New
+
+- Tech-support scam protection: pages pretending to be a Windows or Microsoft security alert, with a number to call, get a red warning. If the page took over the screen, Warden takes it out of full screen and mutes it first. A news article about these scams isn’t flagged.
+- Esc always leaves a page’s full screen, even when the page tries to lock the keyboard (scam pages do this so you can’t get out).
+
+### Fixed
+
+- Pressing Ctrl+L (or Ctrl+K, Ctrl+E, Ctrl+T) on a page and typing straight away could lose the first letter, so "http://" became "ttp://". Warden now takes the keyboard the instant you press the shortcut, and anything typed in that moment goes into the address bar.
+- With no games installed, the Games tab now still shows this week’s free games.
+- Settings → VPN: the Server and Port boxes were drawn about 200 pixels tall, and the Port box ran off the edge.
+- The fake-site warning let the page underneath show through its text. Warnings now cover the page completely.
+- A blocked site’s tab no longer shows that site’s own icon.
+- The "What’s new" tab had no icon.
+- Two separate setting cards sat almost on top of each other (Accounts, General, VPN). They now have room between them.
+- Checkboxes (Privacy & data → Clear browsing data) were bright white boxes on the dark theme; they now match it.
+- The "Import bookmarks" button’s icon was oversized and almost invisible.
+- The main menu touched the right edge of the window.
+- Setup: the last screen mentioned Bitwarden twice, and on short windows the text ran right up to the buttons.
+- Settings → About no longer shows an "on" automatic-updates switch in copies that can’t update themselves.
+- History’s empty page now explains what shows up there, with a button to import history from another browser.
+- Settings → Shortcuts listed "Close tab" twice.
+
 ## 0.8.5 · Fixes from an outside security review
 
 *5 November 2026*

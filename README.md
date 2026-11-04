@@ -40,6 +40,7 @@ There's no account to make, no ads, and nothing you browse is sent anywhere to b
 - **Ad and tracker blocking** with uBlock Origin's and EasyList's filters (over 500,000 rules), YouTube ads included.
 - **Fake-site alarms.** Look-alike addresses such as `steamcommunnity.com` get a warning with a button to the real site.
 - **Gamer scam protection**: Discord and Steam phishing lists, "paste this into Win+R" (ClickFix) pages, fake login pop-ups drawn inside a page, QR-code login scams, and clipboard hijackers that swap wallet addresses or trade links.
+- **Fake virus warnings stopped.** Tech-support scam pages ("your PC is locked, call Microsoft") get a red warning; if one took over the screen, Warden takes it out of full screen and mutes it. Esc always gets you out of a full-screen page.
 - **Download quarantine.** Every download waits in a private folder while Microsoft Defender scans it. Programs and scripts (.exe, .msi, .bat…), cheats, cracks, injectors and password-locked archives stay held until you release them yourself, even after a clean scan. If Defender is off or replaced by another antivirus, Warden can't scan: ordinary files go to your Downloads folder (where your antivirus checks them) and programs, cheats and locked archives are still held.
 - **HTTPS-only**, encrypted DNS, fingerprinting noise and cookie-banner removal.
 

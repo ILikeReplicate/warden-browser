@@ -4,6 +4,20 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.8.8 · No more "Leave site?" traps
+
+*5 November 2026*
+
+Pages you never used can’t hold you with a "Leave site?" question any more, and the Shield receipt is easier to see.
+
+### Fixed
+
+- The Shield receipt (click the shield in the address bar) blended into white pages. It now has a soft shadow and outline that follow its torn edge.
+
+### Security
+
+- A page can only ask "Leave site?" if you actually typed or clicked in it, and only once, like in Chrome. Scam pages that never had your attention used it to keep you on them, and the question paused all of Warden until you answered.
+
 ## 0.8.7 · Steam API-key scam warning
 
 *5 November 2026*

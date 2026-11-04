@@ -23,13 +23,27 @@ Warden **0.8.0 and 0.8.1** download updates but can't install them. If you someh
 1. Warden downloads `latest.json` and `latest.json.sig` from this repository's latest release.
 2. It checks the Ed25519 signature on `latest.json` against the public key built into Warden. The private key never leaves the developer's PC and is never uploaded.
 3. It refuses any version that isn't newer than the installed one (no downgrades).
-4. The installer link must point at this repository's own releases.
+4. The installer link must point at this repository's own releases (under its current name or its first name, `warden-updates`, which GitHub forwards here).
 5. The installer is downloaded without cookies, in a separate session, and must match the SHA-256 and size in the signed `latest.json`. Anything else is deleted.
 6. It's installed silently when Warden closes, into the same folder, as you (never as administrator).
+
+## The signing key
+
+There is one update signing key (Ed25519), kept on the developer's PC and never uploaded anywhere. If it were ever lost or suspected stolen:
+
+1. No new update is published with it again.
+2. A new key pair is made, and a release built with the new public key is published as a normal download, announced here and in the update log.
+3. Installed copies can't switch keys by themselves (that would let a stolen key replace itself), so everyone installs that one release by hand once. After that, updates are automatic again.
+
+A stolen key alone isn't enough to push a fake update: it would also have to be uploaded to this repository's releases, which takes the GitHub account itself.
+
+## How every release is tested
+
+Before a release is published it's installed in **Windows Sandbox** (a throwaway copy of Windows) and attacked there: fake and tampered updates, pages reaching for your files and Warden's internals, ClickFix clipboard tricks and ways around the clipboard guard, wallet-address swaps, popup floods, fake Steam login windows, look-alike and punycode domains, dangerous app links, permission grabs and cheat downloads. Each trick is first run with harmless data, to prove it really works, so a pass means Warden stopped it. The publishing tool refuses any build that didn't pass that day.
 
 ## Hardening at a glance
 
 - Electron's security fuses are on in main Warden: it can't be used as a Node.js script runner, can't have code injected through environment variables, and keeps cookies encrypted on disk.
 - Web pages run sandboxed with context isolation. Warden's own interface talks to the engine only through an allow-list of messages.
-- Downloads are quarantined until Microsoft Defender has scanned them.
+- Downloads are quarantined while Microsoft Defender scans them; programs, cheats and locked archives stay held until you release them.
 - Google, Microsoft, Steam, Epic, Riot and Discord sign-in pages are left untouched, so they see a plain, unmodified Chromium.

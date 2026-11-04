@@ -4,6 +4,40 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.8.5 · Fixes from an outside security review
+
+*5 November 2026*
+
+Grok tested 0.8.3 like an attacker would. This release fixes what it found, from a popup flood that could crash Warden to fake Steam logins and disguised addresses, and every fix is now part of the attack test each release has to pass.
+
+### New
+
+- Updates arrive faster: Warden checks every hour instead of every 4 hours, and soon after your PC wakes from sleep.
+- A frozen page (one stuck in an endless loop) gets a "isn’t responding" notice with Wait or Restart page, and Reload now really restarts it, like Chrome’s "Page unresponsive".
+- The sidecar window has a small close button that’s always in its corner, and Esc closes it.
+- Typing another browser’s settings address (chrome://settings, about:config) opens Warden’s own Settings, with a note saying so.
+
+### Fixed
+
+- A page could open a flood of tabs until Warden ran out of memory and crashed, losing your tabs. One click now opens at most one popup, a page that nobody clicked can’t open tabs at all, and every page has a hard limit per minute, even on sites whose popups you allowed. Blocked floods get one notice, not one each.
+- Clicking the page to close the downloads panel (or any Warden popup) swallowed that click. It now closes the popup and the click lands on the page, like in Chrome. Esc closes them even while the page has focus.
+- "Go back" on a fake-site warning opened an empty new tab instead of staying on the page you came from.
+- Importing passwords from a file with nothing usable in it said nothing at all. It now says what happened (how many rows were skipped and why), and refuses files far too big to be a password export.
+- Enter now saves in Add login (Settings → Passwords), and Esc closes the form.
+- A "don’t ask again" choice (like the default-browser question) could be forgotten if Warden crashed right after. Settings are now written to disk straight away.
+- Real international addresses with accented letters (like münchen.de) no longer get a "mixes alphabets" fake-site warning.
+- Setup no longer pops Bitwarden’s window up over Warden when you finish (it stole your typing). It offers a one-click "Open Bitwarden" instead.
+
+### Security
+
+- Fake Steam login windows drawn inside a page (browser-in-the-browser) are caught in more forms: when the fake address bar is split into pieces, shown in a read-only box, or the fake window is centred instead of pinned. A normal site that just mentions Steam next to its own login isn’t flagged.
+- Look-alike addresses written in punycode with an invisible character hidden inside (like a fake "stamcommu nity.com") now get the fake-site warning, showing where the hidden character is.
+- Links that open other apps now use an allowlist: only known ones (Steam, Discord, Epic, Spotify, mail, Zoom, Teams and a few more) can even ask, and Steam links only in their everyday forms (store pages, installing or starting a game). Everything else, including ms-settings:, ms-appinstaller:, steam://connect and unknown link types, is refused without a prompt.
+- Websites can no longer open Warden’s internal pages or resources (warden:, warden-res:) or network share paths.
+- Permission prompts: "Always allow this site" now starts unticked, so one wrong click on Allow isn’t permanent. Blocking is still remembered, so sites can’t keep asking.
+- Downloads named like Windows devices (CON, NUL, COM1…) or ending in a dot are renamed safely.
+- All of the above are now in the attack test every release must pass inside Windows Sandbox (now 48 checks).
+
 ## 0.8.4 · A games library that looks the part
 
 *5 November 2026*

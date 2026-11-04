@@ -40,7 +40,7 @@ There's no account to make, no ads, and nothing you browse is sent anywhere to b
 - **Ad and tracker blocking** with uBlock Origin's and EasyList's filters (over 500,000 rules), YouTube ads included.
 - **Fake-site alarms.** Look-alike addresses such as `steamcommunnity.com` get a warning with a button to the real site.
 - **Gamer scam protection**: Discord and Steam phishing lists, "paste this into Win+R" (ClickFix) pages, fake login pop-ups drawn inside a page, QR-code login scams, and clipboard hijackers that swap wallet addresses or trade links.
-- **Download quarantine.** Every download is held until Microsoft Defender has scanned it. Cheats, cracks and injectors stay held until you release them yourself.
+- **Download quarantine.** Every download waits in a private folder while Microsoft Defender scans it. Programs and scripts (.exe, .msi, .bat…), cheats, cracks, injectors and password-locked archives stay held until you release them yourself, even after a clean scan. If Defender is off or replaced by another antivirus, Warden can't scan: ordinary files go to your Downloads folder (where your antivirus checks them) and programs, cheats and locked archives are still held.
 - **HTTPS-only**, encrypted DNS, fingerprinting noise and cookie-banner removal.
 
 <p align="center">
@@ -92,7 +92,7 @@ Automatic updates are an attractive target, so Warden is strict about them:
 
 - Every release's description is **signed** with a private key that never leaves the developer's PC. Warden checks the signature against a public key built into the app.
 - The downloaded installer must match that signed description's **SHA-256 fingerprint** byte for byte, and its exact size.
-- Installers are only accepted from **this repository's own releases**, downloaded without cookies in a separate session.
+- Installers are only accepted from **this repository's own releases** (it was called `warden-updates` until November 2026; GitHub forwards the old links, which is why update files still point at that name), downloaded without cookies in a separate session.
 - **No downgrades**: an older version is never installed, so an old release with known bugs can't be replayed.
 
 A hacked download server, a fake Wi-Fi network or a corrupted download can't get anything installed: each fails one of those checks and is thrown away. Updates can be turned off in **Settings → About**. More in [SECURITY.md](SECURITY.md).
@@ -105,6 +105,8 @@ A hacked download server, a fake Wi-Fi network or a corrupted download can't get
 
 **Is it really Chromium?**
 Yes. Warden runs on Electron, which ships Chromium, the open-source engine behind Chrome and Edge. Sites, logins and video work like they do in Chrome. Engine security patches are checked every week and go out as automatic updates.
+
+One exception: Netflix, Spotify, Disney+ and other streaming sites open in **Warden Media**, which runs castlabs' Widevine build of Electron. castlabs ships a little behind (Electron 44, Chromium 152 right now), so that copy is locked down to streaming sites only: no downloads, no other sites, its own logins.
 
 **Is it safer than Chrome?**
 For the things gamers actually run into, like fake download sites, fake Steam/Discord logins and scam pages, Warden blocks a lot that Chrome lets through. Chrome still has a far bigger security team and gets Chromium's patches a few days earlier. The best setup in any browser is 2-Step Verification on your accounts plus a real password manager like Bitwarden.

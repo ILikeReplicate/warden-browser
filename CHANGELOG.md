@@ -1,0 +1,263 @@
+# Warden update log
+
+Every Warden release, newest first: what’s new, what’s fixed, security fixes, and the sources checked before deciding things. The same log opens inside Warden after each update, and is always in **Settings → About → What’s new**.
+
+Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
+
+## 0.8.3 · See which account you’re in
+
+*4 November 2026*
+
+With more than one account, the account button shows your picture and first name, so you can tell at a glance which Gmail a tab is using.
+
+### New
+
+- The account button shows the account’s first name next to its picture when you have more than one account, like Chrome’s profile button.
+
+### Fixed
+
+- Your Google profile picture didn’t show (you got a letter instead). Warden now understands every address style Google uses for profile pictures, and if Google’s account list has no picture it takes it from an open Google page.
+- Without a picture, the button now shows the Google account’s own initial instead of the Warden space’s.
+
+## 0.8.2 · Your Google accounts, clearer
+
+*4 November 2026*
+
+The account button now finds your Google sign-in reliably, and adding a second Gmail is one click.
+
+### New
+
+- "Add another Gmail account" in the account menu: it makes a separate space for the new Gmail (like a second Chrome profile, but in this window), opens Google’s sign-in there, and names the space after the account once you’re in. No form to fill in.
+- The account menu lists every Gmail you’re signed in to, with its picture and email. Click one to open a tab signed in as that account.
+
+### Fixed
+
+- Updates downloaded but didn’t install when you closed Warden: Windows ended the little installer helper together with Warden. Updates now install through Windows Task Scheduler, the same way Chrome’s updater does, and the one-off task removes itself afterwards.
+- The account button could say "Not signed in to Google" (and show no picture) while you were signed in. Warden now copes with changes in Google’s account list, and if that list still comes back empty it reads the account from an open Google page’s own avatar, the way Chrome does.
+
+### Security
+
+- The account check on Google pages runs in a separate, isolated space: the page’s own scripts can’t see it or feed it something else.
+- Profile pictures are only fetched from Google’s own image servers.
+
+## 0.8.1 · Testing automatic updates
+
+*4 November 2026*
+
+A test release for automatic updates. In 0.8.0 and 0.8.1 updates downloaded but didn’t install; 0.8.2 fixed that, and was tested end to end on a clean copy of Windows before release.
+
+### Fixed
+
+- When an update points somewhere other than Warden’s own releases, Settings → About now says exactly that, instead of "the update description was incomplete".
+
+## 0.8.0 · Warden updates itself
+
+*4 November 2026*
+
+This is the last version you ever install by hand. From now on Warden downloads new versions in the background and installs them when you close it, then shows you this page.
+
+### New
+
+- Automatic updates. Warden checks for a new version a minute after it starts and every 4 hours, downloads it in the background, and installs it the next time you close Warden. It reopens exactly where you left off.
+- "Restart to update" button by the address bar when an update is ready, if you don’t want to wait until you close Warden.
+- Updates never cut off a film: if Warden Media (Netflix, Spotify…) is still open, the update waits until it’s closed too.
+- This page. It opens by itself after every update and is always in Settings → About → What’s new.
+- Settings → About shows the update status, a "Check now" button and a switch for automatic updates.
+- Right-click the address bar for Cut, Copy, Paste, "Paste and go" and Select all, like in Chrome.
+
+### Fixed
+
+- You couldn’t copy the address from the address bar with the mouse: right-click did nothing.
+
+### Security
+
+- Every update is signed. Warden only installs an update whose description carries a valid signature from Warden’s private signing key, which never leaves the developer’s PC, and only if the downloaded installer matches that description’s SHA-256 fingerprint byte for byte. A hacked download server, a fake Wi-Fi network or a damaged download can’t get anything installed.
+- Copying a password from Warden’s own password manager is supposed to clear it from the clipboard after 30 seconds. With the newer engine that check silently stopped working, so the password stayed on the clipboard. Fixed.
+- No downgrades: Warden never installs a version older than the one it has, so an old, signed update with known bugs can’t be replayed.
+- Updates download only from Warden’s own GitHub releases, without cookies, in a separate session that has nothing to do with your browsing.
+- Engines checked today: main Warden runs Chromium 156.0.8078.80 (Electron 45.2.2, the newest Electron), Warden Media runs castlabs Electron 44.10.1 (castlabs’ newest). Google released Chrome 156.0.8078.88 on 3 November; Warden picks up those fixes as soon as Electron ships them, now automatically.
+
+### What we looked up
+
+- [How Chrome updates: a background service fetches new versions from Google’s servers and installs them on restart. Warden now works the same way, with GitHub as its update server.](https://support.google.com/chrome/answer/95414)
+- [Electron’s releases, checked for a newer 45.x than 45.2.2 (none yet).](https://releases.electronjs.org/)
+- [castlabs’ Electron releases, checked for a newer Widevine build than 44.10.1 (none yet).](https://github.com/castlabs/electron-releases/releases)
+- [Chrome Releases blog: Google’s official list of each Chrome update’s security fixes.](https://chromereleases.googleblog.com/)
+
+## 0.7.2 · Polish from an outside review
+
+*4 November 2026*
+
+Fixes for everything a second AI (Grok) found when it reviewed 0.7.0, plus safer password defaults.
+
+### New
+
+- Bitwarden is the pre-picked password manager in setup, and "Open Bitwarden when I finish" starts ticked. Picking Warden’s own manager shows a clear warning that Bitwarden is the safer choice.
+- "Add login" in Settings → Passwords, for adding a login by hand to Warden’s own manager.
+- When Defender flags a download, Warden shows the name Defender gave it and what that means: an automatic AI guess (often wrong about brand-new indie games), a "tool you might not want", or known malware. Guesses get a softer warning and a "Report a false positive" button.
+- Plain HTTP sites now say "Not secure" in words next to the address.
+- Lots of tabs: tabs keep a readable width and the tab strip scrolls, with fades at the edges when there are more. The close × is always faintly visible.
+
+### Fixed
+
+- Typing a file path (C:\… or file:///…) into the address bar sent it to your search engine as a search. Warden now refuses it and says why.
+- Esc didn’t close the downloads panel and other popups.
+- Setup’s Next and Back buttons jumped around between steps, and setup didn’t fit short windows. It’s now one fixed-size card that fits a 600-pixel-tall window.
+- Setup’s artwork was cropped on some steps.
+- Setup’s last screen now recaps your theme and password choice too.
+- Importing passwords failed silently when Windows’ encryption wasn’t available. It now says so.
+- A link that only downloads a file left an empty tab behind. That tab now closes by itself, like in Chrome.
+- The "Scan downloads with Defender" switch looked on even on PCs without Defender.
+- The Bitwarden window’s controls disappeared too quickly to find the close button. They now stay visible for a few seconds when it opens.
+
+### Security
+
+- Local file addresses are no longer leaked to your search engine.
+- Bitwarden, an audited open-source password manager, is the default instead of Warden’s own unaudited one.
+
+### What we looked up
+
+- [Microsoft’s naming for Defender detections: names like Wacatac or Sabsik, or ones ending in !ml, are machine-learning guesses, the kind most often wrong about new software.](https://learn.microsoft.com/en-us/defender-xdr/malware-naming)
+- [Microsoft’s form for reporting a file Defender got wrong.](https://www.microsoft.com/en-us/wdsi/filesubmission)
+
+## 0.7.0 · A real installer and a proper welcome
+
+*4 November 2026*
+
+Warden Setup, a new eight-step first-run setup, and faster page opens.
+
+### New
+
+- Warden Setup.exe: a dark installer with Warden’s own artwork and a progress bar. It installs just for you with no admin prompt, adds Start-menu and desktop shortcuts and an Uninstall entry.
+- Uninstalling asks before deleting your bookmarks and settings, and only removes Warden’s browser registration if it belongs to that copy.
+- New first-run setup in eight short illustrated steps: welcome, bring your stuff from Chrome, Edge or Opera, Google sign-in, passwords, your games, look and protection, default browser (optional), and a summary. Every step can be skipped.
+- Faster page opens: while you type in the address bar, arrow to a suggestion or hover a speed dial or bookmark, Warden connects to that site early (never to blocked or look-alike sites).
+- Dragging a tab shows a see-through ghost exactly where it will land; drop on empty tab-bar space to send it to the end.
+- The background texture is off by default, and much subtler if you turn it on.
+
+### Fixed
+
+- Warden Media now waits for Widevine on its very first start, instead of loading Netflix before protected video is ready.
+
+### Security
+
+- The installer never runs anything as administrator.
+
+### What we looked up
+
+- Measured why pages open a little slower than in Edge: Warden’s protections add almost nothing; the gap is the Electron engine itself. Early connections (preconnect) make up some of it.
+
+## 0.6.1 · Tab dragging fix
+
+*4 November 2026*
+
+### Fixed
+
+- Dropping a tab on the tab bar could land it one place off.
+
+## 0.6.0 · Netflix, the safe way
+
+*4 November 2026*
+
+Streaming sites open in Warden Media, a separate copy signed for protected video, so the main Warden keeps all its security switches on.
+
+### New
+
+- Netflix, Spotify, Disney+, Prime Video and other streaming sites open in Warden Media, a separate window signed by castlabs for protected (Widevine) video. Type Netflix, click a Spotify link or open a Disney+ bookmark and it opens there; links out of it come back to the main Warden.
+- Tabs keep their place across restarts: the second a video was at (paused if it was), back/forward history and scroll position. Warden saves it when you close it and every 2 minutes, so even a crash or power cut resumes close by.
+- Drop a tab on another tab’s left half to go before it, right half to go after it.
+
+### Fixed
+
+- YouTube ads could slip through right after a restart, when pages loaded before the ad-block rules did. Pages now wait for the Shield (up to 20 seconds).
+- The default browser check now reads where newer Windows 11 actually keeps the choice: no more false "links still open in Chrome".
+- Background tabs could restart videos at 0:00 after a restart.
+
+### Security
+
+- Main Warden is back on the newest engine: Electron 45.2.2, Chromium 156.
+- castlabs only signs an engine with its security switches (fuses) off, so that copy holds nothing but your streaming logins. Main Warden keeps all four switches on: it can’t be used as a script runner, can’t have code injected through environment variables, and keeps cookies encrypted on disk.
+- Warden Media can’t download files and only gets the permissions protected video needs.
+
+### What we looked up
+
+- [Tested that castlabs’ signing service refuses an engine with the security switches on, which is why streaming lives in its own copy.](https://github.com/castlabs/electron-releases/wiki/EVS)
+
+## 0.5.0 · Default browser, Bitwarden and security updates
+
+*4 November 2026*
+
+### New
+
+- Warden registers itself with Windows as a browser, so it’s always listed in Settings → Default apps. It asks once (at most weekly, with "Don’t ask again") whether to become your default. Settings → General shows which browser is your default right now.
+- Bitwarden opens in a small always-on-top window next to the page: the lock button in the toolbar, or Ctrl+Shift+L. Sign in once and it’s there for every Warden account.
+- Security updates every two weeks: a scheduled check for new security releases of the engine, a rebuild and a test.
+- First version with Widevine (protected video) support.
+
+### What we looked up
+
+- Tested Bitwarden’s Chrome extension in Electron: its background part crashes and its popup is blank, so Bitwarden’s own web vault is used instead.
+
+## 0.4.0 · Accounts, sleep that remembers, Google sign-in
+
+*4 November 2026*
+
+### New
+
+- Accounts: your dev, Reddit, YouTube and gaming logins in one Warden instead of five Chrome windows. Each has its own sign-ins, cookies and site data, sharing one engine so the memory overhead is paid once. Tabs show a coloured dot; right-click to move a tab or open a link in another account.
+- Sleeping tabs keep your place: back/forward history, scroll position, typed text, and the video second (YouTube included). A tab with a half-written message is never auto-slept. Right-click a tab → Never sleep this site.
+- Virus scan (Settings → Virus scan): drop files or folders, or scan Downloads, Desktop or any game’s folder, with Microsoft Defender.
+- VPN (Settings → VPN): Warden’s traffic, not your games’, through your VPN provider’s proxy, with a kill switch, WebRTC and DNS kept inside it, per-account choice, and a live check of the address sites see.
+- The RAM panel says why each tab is awake and splits Tabs from Warden itself; if your RAM cap can’t be met it tells you.
+
+### Fixed
+
+- Google sign-in: on first-party login pages (Google, Microsoft, Steam, Epic, Riot, Discord…) Warden now leaves the page untouched and looks exactly like regular Chrome, so Google accepts it.
+- Passkey popups: both "sign in with a passkey" and "create a passkey?" requests now ask in Warden first; Windows’ passkey window only opens if you say yes.
+- Game mode and the RAM cap didn’t work with YouTube open (its autoplay kept every tab "playing").
+
+## 0.3.0 · Games, gamer safety and a real app
+
+*3 November 2026*
+
+### New
+
+- Games tab (Ctrl+G): Steam, Xbox / Game Pass, Epic, Riot and Roblox games in one library with real cover art, Continue playing, Rediscover, Installed but never played, playtime, patch notes, PCGamingWiki settings tips and this week’s free Epic games.
+- Play with Boost and automatic game mode: Warden sleeps its tabs, lowers its own CPU priority and pauses the wallpaper while you play.
+- Sidecar windows: a small always-on-top window for a guide, map or stream, with opacity and click-through (Alt+Shift+C).
+- Summon hotkey: Alt+Shift+W shows or hides Warden from anywhere.
+- Warden’s own password manager with Windows encryption, exact-site filling and import from Chrome, Edge, Firefox, Bitwarden, 1Password, LastPass and Proton Pass.
+- Safety checkup: Defender, Shield, HTTPS-only, encrypted DNS, and reused, weak or breached passwords.
+- Address-bar autofill, search suggestions without cookies, switch-to-tab, per-site zoom, recently closed tabs, downloads history, a Settings search box, reorderable speed dials, real site logos, tray mode and crash recovery.
+- Unread Gmail count on the taskbar icon and the account button.
+
+### Fixed
+
+- The RAM limit was silently broken.
+- Importing and building the ad-block lists froze the window; they now run in the background.
+- History lost visits when several tabs finished loading at the same moment.
+- "Today" counters reset at 8 AM instead of midnight.
+- Warden could open off-screen after unplugging a monitor.
+
+### Security
+
+- Gamer scam protection: Discord, Steam and free-skin phishing lists, ClickFix "paste this into Win+R" pages, fake login windows drawn inside a page, fake QR logins, clipboard hijacking (swapped wallet addresses and trade links), and cheats, cracks and injectors held in quarantine.
+- Quarantine tabs: no downloads, no permissions, nothing saved.
+- javascript: pasted into the address bar is refused (a Discord token-stealing trick).
+- Look-alike scam sites get a "Go to the real site" button.
+- Packaged as Warden.exe with Electron’s security fuses on.
+- Settings, bookmarks, history and passwords keep a backup, so a power cut mid-save can’t wipe them.
+- Upgraded to Electron 45.2.2 / Chromium 156.0.8078.80 for Chromium’s latest security fixes.
+
+### What we looked up
+
+- [The breached-password check uses Have I Been Pwned’s range lookup: only the first 5 characters of a scrambled fingerprint ever leave your PC.](https://haveibeenpwned.com/API/v3#PwnedPasswords)
+- Six independent reviews (two security, two bug hunts, one on silent failures, one re-checking the fixes) plus a design review; everything they found was fixed and re-tested.
+
+## 0.2 and earlier · Where Warden started
+
+*2026-11*
+
+### New
+
+- A locked-down, ad-free Chromium browser built for leaving open while you game: the Shield (ads, trackers, malware and cookie banners blocked with EasyList, EasyPrivacy, uBlock Origin’s lists and more), sleeping tabs, a RAM budget, islands for grouping tabs, burner tabs, themes and wallpapers, and import from other browsers.

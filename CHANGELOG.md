@@ -4,6 +4,22 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.8.9 · Updates that just happen
+
+*5 November 2026*
+
+Closing and reopening Warden now really gets you the newest version, without ever downloading an installer yourself.
+
+### New
+
+- Warden checks for an update a few seconds after it opens (it used to wait 45 seconds), and the button by the address bar shows "Updating · 40%" while it downloads.
+- Closing Warden in the middle of an update download no longer loses it: the window closes, Warden quietly finishes the download, installs it and then exits. Opening Warden again meanwhile just brings it back.
+- Every update check and its result is written to an update log on your PC (%LOCALAPPDATA%\Warden\Updates\updater.log), so if an update ever doesn’t arrive, the reason is there.
+
+### Fixed
+
+- Turning Warden off and on again didn’t update it: it only started downloading 45 seconds after opening, and installed the next time you closed it, so quick restarts never got there.
+
 ## 0.8.8 · No more "Leave site?" traps
 
 *5 November 2026*

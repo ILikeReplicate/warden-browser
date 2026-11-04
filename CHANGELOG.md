@@ -4,6 +4,40 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.8.4 · A games library that looks the part
+
+*5 November 2026*
+
+The Games tab is rebuilt: sections, big wide artwork for the games that matter, real cover art for every store, and a free-games list with a quality standard. Plus animated setup, drag-to-copy in the address bar, and a new security test every release must pass.
+
+### New
+
+- The Games tab is in sections: Continue playing, Jump back in, Favorites, Most played (ranked), Rediscover, Installed but never played, Free games, then your whole library. The sections follow the store you pick, so the Steam or Xbox view gets them too.
+- One layout rule everywhere: each row’s highlights (your most recent games, your top game, the most-played) get the wide artwork, and the rest are posters at the same height. In the full library, your favorites and most-played games are wide.
+- Wide cards use the artwork each store makes for that shape (Steam’s main capsule, Xbox’s titled art, Epic’s wide image), so titles and characters aren’t cut off.
+- Rows scroll sideways with the mouse wheel, with arrows on hover and faded edges where there’s more. No scrollbar to drag.
+- Free games: free-to-keep games (and Steam games 95% or more off) from Steam, Epic, GOG, Xbox, PlayStation, Nintendo and Ubisoft, biggest first, 10 in the row and up to 50 under "See all".
+- Xbox / Game Pass, Riot, Roblox and Epic games now get real cover art: Xbox games from the Microsoft Store’s own listing for that exact game, others from Steam or the Microsoft Store when the title matches exactly. Each game is looked up once and remembered.
+- Setup is animated: steps slide in, their options appear one after another, the artwork gently floats and twinkles, and the last step’s checkmark draws itself. With Windows’ “reduce animations” setting on, it stays still.
+
+### Fixed
+
+- Dragging across the address bar to highlight part of the address selected everything instead, so Ctrl+C copied the whole thing. A click selects the whole address and a drag selects just what you drag over, like in Chrome.
+- Your Google profile picture sometimes showed as a letter: when Google was slow to send the picture, Warden gave up. Warden now remembers the last picture for each account, and keeps showing your account if Google can’t be reached for a moment.
+- Xbox and Riot games showed a small logo on a dark card instead of their artwork.
+
+### Security
+
+- Free games have a standard: only established games (1,000+ positive Steam reviews, or one of Epic’s own hand-picked weekly games), and only when they’re claimed on the official store’s own page. Giveaway links are followed to see where they really land; third-party key sites, sign-up walls and unknown downloads are left out.
+- Every release now has to survive an attack test before it’s published: 35 attacks against a test copy, including fake updates (wrong key, forged signature, tampered or oversized installer, downgrades), pages trying to reach your files or Warden’s internals, ClickFix clipboard tricks and five ways around Warden’s clipboard guard, wallet-address swaps, silent clipboard reads, camera/location/notification grabs, cheat-injector downloads, look-alike Steam sites and plain-http downgrades. Each trick is first run with harmless data to prove it really works, so a pass means Warden stopped it, not that the trick failed by itself.
+- Releases are also installed and tested inside Windows Sandbox, a throwaway copy of Windows, before they’re published, and the publishing tool refuses any build that didn’t pass both tests that day.
+- Cover-art and free-game lookups send only game names (or Microsoft Store package names) to Steam, Microsoft, Epic, GamerPower and CheapShark, in separate sessions with no cookies.
+
+### What we looked up
+
+- [GamerPower’s public giveaway feed, used to find free-to-keep games across stores.](https://www.gamerpower.com/api-read)
+- [CheapShark’s deals API, used for Steam games 95% or more off.](https://apidocs.cheapshark.com/)
+
 ## 0.8.3 · See which account you’re in
 
 *4 November 2026*

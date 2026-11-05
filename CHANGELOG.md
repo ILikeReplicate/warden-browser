@@ -4,6 +4,26 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.2 · Scam checks with fewer gaps
+
+*5 November 2026*
+
+Grok tested Warden as a scammer would and found four gaps. All four are fixed: fake addresses with the real one in front, wallet-address swaps, fake Steam logins that appear after a click, and a RAM meter that read far too high.
+
+### Fixed
+
+- The RAM meter read far too high with many tabs open, sometimes more than the whole PC was using (Grok saw 29.7 GB when about 4.2 GB was used). It counted memory Windows had already moved out of RAM. It now counts what’s really in RAM, close to Task Manager, so tabs are also no longer put to sleep early because of it. (Thanks, Grok.)
+- Free games: a game that only becomes free later (like Epic’s “next week” game) looked free now. Those games now sit in their own “Coming free” row with a “Not free yet · free <day>” tag and the price until then, so you don’t click one expecting to claim it.
+- Game focus never touches more anti-cheat: Tencent ACE, GameGuard and PunkBuster were added to the list of programs it always leaves alone.
+- A fake-site warning could fail to appear when the scam link opened in a brand-new tab: the page was blocked, but you saw an empty tab instead of the explanation. It now always shows.
+
+### Security
+
+- Scam addresses with the real one in front, like steamcommunity.com.trade-offer.ru or discord.com-login.ru, now get Warden’s fake-site warning. An address belongs to the part just before its ending (trade-offer.ru), so anyone can put “steamcommunity.com” in front of theirs. It’s one of the most common Steam and Discord phishing tricks, and the warning says which site you’d really be on. (Thanks, Grok.)
+- Wallet-address and trade-link swaps: Warden now checks what actually lands on your clipboard. When you copy an address, Warden remembers what you selected (only the part you could see) and watches the clipboard for a few seconds. If the page puts a different address there, by any trick, Warden puts your copy back and warns you. Text hidden inside what you selected (tiny, see-through or pushed off the page) isn’t copied along. (Thanks, Grok.)
+- Websites can only write to your clipboard within 5 seconds of a click or key press in them, so a page can’t quietly swap what you copied later. Copy buttons work as before.
+- Fake Steam login windows that are already in the page but only appear when you click (“Sign in through Steam”), often with a fade-in, are now caught. The check used to run only when something was added to the page. Now it also runs after clicks and animations, for as long as the page is open. It skips pages with nothing to type into, so it costs nothing on most sites. (Thanks, Grok.)
+
 ## 0.9.1 · Updates while Warden is closed
 
 *5 November 2026*

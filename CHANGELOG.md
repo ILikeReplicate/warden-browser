@@ -4,6 +4,30 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.0 · Your game comes first
+
+*5 November 2026*
+
+Tell Warden whether you game, stream or work, and it keeps your game first while it runs, checks Windows for settings that cost you FPS, and fixes them with one click each.
+
+### New
+
+- Gamer, Streamer or Workstation: Warden asks how you use your PC (in setup, or once after this update) and tunes itself for it. Change it any time in Settings → PC tune-up.
+- Game focus: while a game runs, your other apps go into hiding (low priority plus Windows’ Efficiency mode) and the game gets top priority. Alt-tab to any app and it gets its full speed back while it’s in front. Voice chat, music, OBS, anti-cheat, mouse and headset software are never touched, and everything is put back when the game closes.
+- Streaming: with the Streamer profile, OBS (or Streamlabs, XSplit, Twitch Studio) gets priority over the game, so the stream doesn’t drop frames when the game pushes the PC hard.
+- PC tune-up: checks Windows Game Mode, background game recording, optimizations for windowed games, mouse acceleration, the power plan and hardware GPU scheduling, and fixes each with one click. Every fix can be undone.
+- It also catches monitors left at 60 Hz that can do more (very common after a new monitor or a driver update) and switches them to their real refresh rate.
+- Drivers and hardware: how old your graphics driver and BIOS are, with a button to the maker’s own app or page (never a “driver updater” site); RAM running below its rated speed (XMP/EXPO) or on one stick; a nearly full system drive; too many startup apps.
+- Updates now reach you even if Warden never closes properly: a downloaded update installs the next time Warden opens (with a small progress window), and if Warden stays open for days it restarts itself to update once the PC has been idle for 20 minutes, with nothing playing, downloading or gaming, and all your tabs come back.
+
+### Fixed
+
+- If you had an extra copy of Warden (for example an old shortcut to another folder), that copy kept opening on an old version. Warden’s shortcuts now always point at the installed copy.
+
+### Security
+
+- PC tune-up never turns off Windows Security, Memory integrity or the firewall for speed. Its fixes only change the settings listed, save what was there before, and the one fix that needs administrator rights (GPU scheduling) asks Windows for permission first.
+
 ## 0.8.9 · Updates that just happen
 
 *5 November 2026*

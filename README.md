@@ -51,6 +51,8 @@ There's no account to make, no ads, and nothing you browse is sent anywhere to b
 ### 🎮 Built around your games
 - **Games tab** (Ctrl+G): your Steam, Xbox / Game Pass, Epic, Riot and Roblox games in one library, with cover art, playtime, patch notes and this week's free Epic games.
 - **Game mode**: while you play, Warden sleeps its tabs, lowers its own CPU priority and frees memory.
+- **Game focus**: pick Gamer, Streamer or Workstation. While a game runs, your other apps step back (low priority plus Windows' Efficiency mode) and the game comes first; alt-tab to any app and it gets its speed back while it's in front. Streamers: OBS gets priority over the game, so the stream doesn't drop frames. Voice chat, music, anti-cheat and mouse/headset software are never touched.
+- **PC tune-up**: finds the Windows settings that quietly cost FPS (Game Mode, background recording, windowed-game optimizations, mouse acceleration, power plan, GPU scheduling) and a monitor left at 60 Hz that can do more, and fixes each with one click, with Undo. It also checks how old your graphics driver and BIOS are, RAM speed (XMP/EXPO) and free disk space, and points you to the maker's own tools. It never turns off Windows security for speed.
 - **Sidecar** (Alt+Shift+C): a small always-on-top window for a guide, map or stream next to your game.
 - **Summon** (Alt+Shift+W): show or hide Warden from anywhere.
 
@@ -66,7 +68,7 @@ There's no account to make, no ads, and nothing you browse is sent anywhere to b
 Streaming sites open in **Warden Media**, a separate copy signed for protected video (Widevine). That way the main Warden keeps all of its security switches on.
 
 ### 🔄 Updates itself, like Chrome
-Warden downloads new versions in the background and installs them when you close it. After an update it shows you exactly what changed, including security fixes.
+Warden downloads new versions in the background and installs them when you close it. If it never closes properly (the PC shut down with it open), the update installs the next time it opens; left open for days, it updates itself once the PC has been idle for 20 minutes, and your tabs come back. After an update it shows you exactly what changed, including security fixes.
 
 <p align="center">
   <img src="docs/screenshots/whatsnew.png" alt="Warden's What's new page after an update" width="760">

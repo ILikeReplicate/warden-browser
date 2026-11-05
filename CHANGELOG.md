@@ -4,6 +4,32 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.1 · Updates while Warden is closed
+
+*5 November 2026*
+
+Warden now updates itself even while it’s closed, so it’s already on the newest version when you open it. Plus: PC tune-up never asks for admin rights, setup animates again, and Back gets you out of history traps.
+
+### New
+
+- Updates while Warden is closed, like Chrome: once an hour a Windows scheduled task (for your account only, no admin) runs Warden in the background with no window. If a new version is out and Warden isn’t open, it downloads it, checks its signature and installs it, so the next time you open Warden it’s already up to date. If Warden is open, it does nothing (the open Warden updates itself). Updates switched off in Settings → About means this does nothing too; uninstalling Warden removes the task.
+- Back gets you out of history traps: a page that adds a pile of history steps so Back keeps you on it is now skipped in one press (Back button, Alt+←, or the page menu), and Warden says so. Pages that only update their address while you scroll aren’t affected. (Thanks, Grok.)
+- Right-click the Back button for the pages behind you, like in Chrome. Steps one page added to itself show as one line (“20 steps”).
+- A flood of blocked popups from one site is one notice with a count, not a stack of them. (Thanks, Grok.)
+
+### Fixed
+
+- Ctrl+, (Settings) and other Warden pages always open in their own tab instead of replacing a new tab you were on.
+- Adding a game always confirms it, even when the library needs a refresh to show it.
+- Setup stood still on PCs where Windows’ “Animation effects” setting is off (common, and always the case over Remote Desktop and in Windows Sandbox): the steps no longer slid in and the artwork didn’t move. Setup now always animates; only Warden’s own Animations switch (Settings → Appearance) turns it off.
+
+### Security
+
+- PC tune-up no longer asks for administrator rights at all. Turning on GPU scheduling used to show a Windows permission prompt that only said “Windows Command Processor”, a prompt malware on the PC could have imitated while you were expecting it. That one setting now opens Windows’ own Graphics settings page instead. (Thanks, Grok.)
+- Fake sign-in windows drawn inside a page (Steam, Discord, Google, Microsoft, Roblox, Epic): the detector no longer misses a fake address bar that has an extra character, icon or word in front of the address. (Thanks, Grok.)
+- Game focus raises your game to “Above normal” instead of “High”: still ahead of every other app (they’re below normal and in Efficiency mode), without the risk of starving Windows’ own mouse and sound handling. (Thanks, Grok.)
+- A new refresh rate is now a trial: Warden asks “Keep this refresh rate?” and switches back by itself after 15 seconds without an answer, even if the screen goes black. It’s only saved once you click Keep. (Thanks, Grok.)
+
 ## 0.9.0 · Your game comes first
 
 *5 November 2026*

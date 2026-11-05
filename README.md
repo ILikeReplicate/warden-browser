@@ -49,12 +49,23 @@ There's no account to make, no ads, and nothing you browse is sent anywhere to b
 </p>
 
 ### 🎮 Built around your games
-- **Games tab** (Ctrl+G): your Steam, Xbox / Game Pass, Epic, Riot and Roblox games in one library, with cover art, playtime, patch notes and this week's free Epic games.
+- **Games tab** (Ctrl+G): your Steam, Xbox / Game Pass, Epic, Riot and Roblox games in one library with real cover art from every store, sorted into rows (Jump back in, Favorites, Most played, Rediscover, Never played). The games that matter get big wide artwork, the rest are posters.
+- **Free games, with a standard**: the biggest games that are free right now (or 95%+ off) on Steam, Epic, Xbox and GOG. Only the major stores, only games with real player counts, links checked to be the store's own: no shovelware, no shady key sites.
 - **Game mode**: while you play, Warden sleeps its tabs, lowers its own CPU priority and frees memory.
 - **Game focus**: pick Gamer, Streamer or Workstation. While a game runs, your other apps step back (low priority plus Windows' Efficiency mode) and the game comes first; alt-tab to any app and it gets its speed back while it's in front. Streamers: OBS gets priority over the game, so the stream doesn't drop frames. Voice chat, music, anti-cheat and mouse/headset software are never touched.
 - **PC tune-up**: finds the Windows settings that quietly cost FPS (Game Mode, background recording, windowed-game optimizations, mouse acceleration, power plan, GPU scheduling) and a monitor left at 60 Hz that can do more, and fixes each with one click, with Undo. It also checks how old your graphics driver and BIOS are, RAM speed (XMP/EXPO) and free disk space, and points you to the maker's own tools. It never turns off Windows security for speed.
 - **Sidecar** (Alt+Shift+C): a small always-on-top window for a guide, map or stream next to your game.
 - **Summon** (Alt+Shift+W): show or hide Warden from anywhere.
+
+<p align="center">
+  <img src="docs/screenshots/games.png" alt="Warden's Games tab: your library in rows with wide artwork for recent games" width="900">
+</p>
+<p align="center">
+  <img src="docs/screenshots/games-free.png" alt="Free games right now, from the major stores only" width="900">
+</p>
+<p align="center">
+  <img src="docs/screenshots/tuneup.png" alt="PC tune-up: pick Gamer, Streamer or Workstation and fix the Windows settings that cost FPS" width="900">
+</p>
 
 ### 👤 Several accounts, one window
 - Keep your main Gmail, school account, alt and gaming logins apart in **spaces**, each with its own sign-ins and cookies, like Chrome profiles but in one window.
@@ -68,7 +79,7 @@ There's no account to make, no ads, and nothing you browse is sent anywhere to b
 Streaming sites open in **Warden Media**, a separate copy signed for protected video (Widevine). That way the main Warden keeps all of its security switches on.
 
 ### 🔄 Updates itself, like Chrome
-Warden downloads new versions in the background and installs them when you close it. If it never closes properly (the PC shut down with it open), the update installs the next time it opens; left open for days, it updates itself once the PC has been idle for 20 minutes, and your tabs come back. After an update it shows you exactly what changed, including security fixes.
+Warden downloads new versions in the background and installs them when you close it. Even while it's closed, an hourly background check (a Windows scheduled task for your account, like Chrome's updater; no admin) fetches and installs a new version, so Warden is already up to date when you open it. If it never closes properly (the PC shut down with it open), the update installs the next time it opens; left open for days, it updates itself once the PC has been idle for 20 minutes, and your tabs come back. After an update it shows you exactly what changed, including security fixes.
 
 <p align="center">
   <img src="docs/screenshots/whatsnew.png" alt="Warden's What's new page after an update" width="760">
@@ -79,7 +90,7 @@ Warden downloads new versions in the background and installs them when you close
 1. Go to **[Releases](../../releases/latest)** and download **`Warden-Setup-<version>.exe`** (about 210 MB).
 2. Run it. It installs just for you, with **no admin prompt**, and adds Start menu and desktop shortcuts.
 3. Windows may show **"Windows protected your PC"**. Warden isn't code-signed yet, and SmartScreen warns about apps it hasn't seen many times before. Click **More info**, then **Run anyway**.
-4. A one-minute setup brings over your bookmarks from Chrome, Edge or Opera, signs you in to Google if you want, and picks your look. Every step can be skipped.
+4. A one-minute setup brings over your bookmarks from Chrome, Edge or Opera, signs you in to Google if you want, asks whether you game, stream or work (so Warden can tune your PC for it), and picks your look. Every step can be skipped.
 
 **Already have Warden?** You never need to download it again: it updates itself.
 
@@ -87,6 +98,8 @@ Warden downloads new versions in the background and installs them when you close
 
 <p align="center">
   <img src="docs/screenshots/onboarding.png" alt="Warden's first-run setup" width="760">
+  <br><br>
+  <img src="docs/screenshots/setup-profile.png" alt="Setup asks whether you're a gamer, streamer or use a workstation" width="760">
 </p>
 
 ## How updates stay safe

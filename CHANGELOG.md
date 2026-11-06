@@ -4,6 +4,19 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.4 · Better Discover picks
+
+*6 November 2026*
+
+Discover now holds its picks to the same bar as the free games: games lots of people love, not just games whose tags match yours.
+
+### Fixed
+
+- Discover picked games with only a few dozen reviews (a 97% score from 69 people) just because their tags matched a game you play. The main row and the “Because you play …” rows now only show proven games: 85%+ positive with 1,000+ reviews, the same bar as the free games. Picks are ranked by how well they fit you AND how loved they are, so a close tag match alone never wins.
+- Smaller games still get their chance, in their own “Hidden gems from small studios” row behind “Show more”, now with at least 300 reviews at 92%+.
+- Games whose title is partly Chinese, Japanese or Korean are left out of Discover, since they often have no English.
+- Today’s picks are rebuilt with the new rules right after the update, instead of tomorrow.
+
 ## 0.9.3 · Discover, and a smoother Warden
 
 *6 November 2026*

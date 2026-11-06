@@ -4,6 +4,17 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.6 · Music keeps playing while you game
+
+*6 November 2026*
+
+Sound in Warden no longer cuts out for a few seconds while a game is open, and games that come out free say so clearly.
+
+### Fixed
+
+- With a game open (even just sitting in its menu), music and videos in Warden could cut out for a few seconds, mostly right after a tab was put to sleep. Game mode lowers Warden’s priority so the game gets the CPU first, and that included the part of Warden that plays sound. Sound, and any tab playing it, now keeps normal priority; everything else still steps back for the game.
+- Games that come out and turn free on the same day (like Knightica on Epic) said “Not free yet” and that they cost full price until then, but they can’t be bought before their release. They now say “Comes out <day> · free its first week”, with the price after the free week.
+
 ## 0.9.5 · Updates you can see, and art for every game
 
 *6 November 2026*

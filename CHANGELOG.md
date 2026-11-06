@@ -4,6 +4,33 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.3 · Discover, and a smoother Warden
+
+*6 November 2026*
+
+Games has Discover: a row of good games picked for your taste every day, from big and small studios, with more behind “Show more”. And a lot of small things are smoother: the new tab shows the shortcuts you actually use, game cards show their size, and you can set how much space games may use.
+
+### New
+
+- Games → Discover: one row in your library like any other, with “Show more” for the rest. New picks every day, matched to the games you’ve been playing (or the ones you pick as “games you love”). Only well-reviewed games (85%+ positive on Steam) make it, with a row of hidden gems from small studios and “Because you play …” rows. Every card says why it’s there. “More like this” and “Not for me” teach it, and so does what you look at. Games you’ve been shown don’t come back for two months. Your library never leaves your PC. Once you’ve used Discover, the day’s picks are prepared quietly in the background (never while you play), so they’re there the moment you open it.
+- New tab shortcuts sort themselves: the ones you use most are the big tiles (one row), the rest sit in a small row of icons under them. The same site twice shows once; “Remove duplicate” is in the tile’s menu. Right-click → “Keep it big” pins a tile.
+- Game cards show their size on disk instead of a store letter (the store is in the tooltip and the details). Sizes for Xbox, Riot and games you added are measured in the background.
+- Free games moved into Discover, all with the big wide art. Games that only become free later (like Epic’s next weekly game) are at the end of the same row, tagged “Not free yet”, instead of a separate section.
+- Storage limit for games: set how much space games may use (Games, under the search bar). When they go over, Warden says so calmly, and “Free up space” lists the biggest, least-played games with just enough ticked to get back under. Each game is uninstalled by its own launcher, which asks first; Warden never deletes game files. “Remind me later” waits a week.
+
+### Fixed
+
+- Searching the games library no longer redraws the whole page on every key press (no flicker; the search box keeps its place). Esc clears the search.
+- With lots of tabs open, tabs still show the start of their title instead of just the icon, so two Wikipedia tabs can be told apart.
+- History no longer lists the same page over and over when you go back and forth: visits to it within half an hour show as one row with a count.
+- Notices (“toasts”) stay while your mouse is on them, so there’s time to read them or press Undo, and long ones wrap instead of being cut off.
+- More Chrome shortcuts: Ctrl+F4 closes the tab, Alt+D and F6 go to the address bar, Alt+Home opens the start page.
+- Closing a game’s details puts the keyboard back on the game you opened it from. Details with three stats no longer leave a gap.
+
+### Security
+
+- Extra safety net for fake sites: every page is checked again as it starts loading, so a fake address in a brand-new tab (like discord.com-login.ru) always gets the warning page, even if the first check was missed. Sites you chose to trust stay trusted.
+
 ## 0.9.2 · Scam checks with fewer gaps
 
 *5 November 2026*

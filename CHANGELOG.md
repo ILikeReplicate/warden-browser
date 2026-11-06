@@ -4,6 +4,23 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.5 · Updates you can see, and art for every game
+
+*6 November 2026*
+
+Opening Warden while an update installs now says so on screen and opens Warden the moment it’s done, and it can never get stuck. Riot, Roblox and Xbox games get their proper art more often, and right away.
+
+### New
+
+- Opening Warden while an update is installing shows a small “Updating Warden… It opens by itself in a moment” window, and Warden opens as soon as the install is done. Before, nothing seemed to happen.
+
+### Fixed
+
+- Warden could refuse to open for a few minutes after an update: if the small helper that installs updates was closed before it tidied up, its “installing” note stayed behind, and every open of Warden quietly stepped aside. Warden now checks that the helper is really still running, and opens normally if it isn’t.
+- Roblox never got its art: the stores list it as “Roblox - Windows” and “Roblox - Xbox”, and Warden only accepted the exact name. Store names with a platform on the end (“- Windows”, “PC”, “for Xbox”…) now count too, the Windows one first.
+- Riot, Roblox and Xbox games whose art was found a few seconds after Games opened showed their small app icon (like Valorant’s red square) until the next time you opened Games. The art now appears the moment it’s found.
+- Games whose art lookup failed before this update are looked up once more now, instead of a week later.
+
 ## 0.9.4 · Better Discover picks
 
 *6 November 2026*

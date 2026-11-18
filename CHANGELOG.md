@@ -4,6 +4,17 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.7 · “Sign in with Google” works everywhere
+
+*18 November 2026*
+
+Clicking “Sign in with Google” (or “Continue with Google”) on sites like Lazada and Pinterest now opens Google’s sign-in window, like in Chrome. Before, nothing happened.
+
+### Fixed
+
+- “Sign in with Google” did nothing on many sites (Lazada, Pinterest and every site using Google’s own sign-in button). Those buttons first try Chrome’s built-in account picker; Warden’s engine said it had one but has no window to show it, so the sign-in quietly failed. Warden now says it doesn’t have it, and the sites use Google’s regular sign-in window instead.
+- A sign-in window opened from Google’s own button was sometimes blocked as an unwanted popup: the click happens inside Google’s part of the page, which Warden didn’t count as your click. Popups that go straight to the real Google, Apple, Microsoft or Facebook sign-in page now always open (at most two a minute per page).
+
 ## 0.9.6 · Music keeps playing while you game
 
 *6 November 2026*

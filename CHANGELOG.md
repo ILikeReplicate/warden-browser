@@ -4,6 +4,21 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.8 · Stay signed in
+
+*18 November 2026*
+
+Sites no longer sign you out every time Warden closes, updates or crashes, and Google’s “Continue as …” prompt is back, so sites you use with Google can sign you in with one click, or on their own.
+
+### New
+
+- Stay signed in after closing Warden. Many sites keep you signed in only until the browser closes; Warden now keeps those sign-ins, as Chrome does when it reopens your tabs. They are encrypted by Windows and stay on this PC. Settings → Passwords → “Stay signed in after closing Warden” turns it off, and Clear data still removes them.
+- Google’s “Continue as …” sign-in prompt shows again. On sites that offer it, it signs you in with one click, and sites that support it sign you back in by themselves when you’ve signed in there with Google before. If it doesn’t appear, the site’s own “Sign in with Google” button works as before.
+
+### Fixed
+
+- Warden’s annoyance filter hid Google’s sign-in prompt on every site, so the one-click and automatic Google sign-ins never happened.
+
 ## 0.9.7 · “Sign in with Google” works everywhere
 
 *18 November 2026*

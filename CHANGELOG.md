@@ -4,6 +4,20 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.9.9 · Real posters in Discover
+
+*20 November 2026*
+
+Discover’s game cards show each game’s real poster instead of a squeezed, blurred banner, and every row mixes 3 wide cards with posters.
+
+### New
+
+- Each Discover row now has 3 wide cards, picked at random for the day, and posters for the rest. A game that has no poster on Steam always gets a wide card.
+
+### Fixed
+
+- Many newer games in Discover showed a small banner squeezed into a tall card with a blur around it. Steam keeps their posters at a different address; Warden now asks Steam where each game’s poster and wide art are. If a poster still doesn’t load, the card turns wide instead.
+
 ## 0.9.8 · Stay signed in
 
 *18 November 2026*

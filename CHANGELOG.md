@@ -4,6 +4,20 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.10.1 · Sign in to desktop apps
+
+*27 November 2026*
+
+Logging in to apps like NordVPN or the Riot Client through Warden now finishes: Warden asks to open the app instead of silently refusing.
+
+### Fixed
+
+- Logging in to NordVPN, the Riot Client (VALORANT, League) and other desktop apps through their website showed “you’re in” but the app stayed logged out. Their “Continue” button hands the login back to the app with a link only that app understands (nordvpn:, riotclient:), and Warden refused every app it didn’t already know without asking.
+
+### Security
+
+- A website can only ask to open an app that is really installed on your PC, and Warden names it in the question. Windows’ own built-in links, links that would start a script runner (PowerShell, cmd, Python…) and the known attack paths are still refused, and quarantine tabs never ask.
+
 ## 0.10.0 · Chrome extensions, Google Pay and YouTube fixes
 
 *27 November 2026*

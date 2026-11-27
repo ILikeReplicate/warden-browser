@@ -4,6 +4,27 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.10.2 · Profiles you can read at a glance
+
+*27 November 2026*
+
+The account menu shows your real Google pictures and who is signed in where, sites remember a trusted device again, and Warden’s separate sign-in spaces are now called profiles.
+
+### New
+
+- A clearer account menu: your Google picture, name and address at the top with one-click Gmail (with unread count), YouTube, Drive and Google Account; then all your profiles, each with its own picture, its Google address and its unread mail. Click a profile to go back to the tab you last used in it, or + to open a new tab there.
+- “Add another Google account” always makes a new profile and opens Google’s sign-in in it; the profile takes the account’s name once you’re in.
+- Warden’s separate sign-in spaces are called profiles everywhere (Settings → Profiles), like Chrome’s, so they no longer read like Google accounts.
+
+### Fixed
+
+- “Don’t ask again on this device for 30 days” didn’t stick on many sites. They recognise a trusted device partly by its fingerprint, and Warden gave every site a brand-new one each time it started. Cookies are also saved to disk the moment Warden closes.
+- The account menu could show letters instead of your Google pictures and say “Not signed in to Google” for profiles that were signed in. Google changed how its account list must be asked for (Warden’s old request got an error back, for every profile); Warden now asks the new way, falls back to asking from a hidden Google page, remembers who was signed in where between restarts, and only says “not signed in” when Google’s sign-in is really gone.
+
+### Security
+
+- Fingerprint noise is now the same for a site from one start to the next (each site and each profile still sees a different one, so sites can’t link you across sites). Burner tabs still get a fresh one every time.
+
 ## 0.10.1 · Sign in to desktop apps
 
 *27 November 2026*

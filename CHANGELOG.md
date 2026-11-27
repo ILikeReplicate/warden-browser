@@ -4,6 +4,24 @@ Every Warden release, newest first: what’s new, what’s fixed, security fixes
 
 Installed copies update themselves. To install Warden for the first time, get the latest **Warden-Setup** from [Releases](../../releases/latest).
 
+## 0.10.0 · Chrome extensions, Google Pay and YouTube fixes
+
+*27 November 2026*
+
+Add extensions from the Chrome Web Store with its own “Add to Chrome” button, pay with Google Pay, and YouTube sound and Shorts keys work the first time.
+
+### New
+
+- Chrome extensions: open any extension in the Chrome Web Store and press “Add to Chrome”. Warden asks first and says what the extension can do. Your extensions are under the puzzle button next to Downloads, where you can open them, pin them to the toolbar, open their options or remove them. They work in all your Warden accounts but never in burner or quarantine tabs, and they update themselves. Some extensions use parts of Chrome that Warden doesn’t have and won’t fully work.
+
+### Fixed
+
+- “Buy with Google Pay” did nothing on most shops. Their Google Pay button sits inside a frame (Stripe’s, the shop’s payment provider’s), and a click there never reached Warden, so Google Pay’s own pay.google.com window was blocked as a popup nobody asked for. Google Pay’s window now always opens when you press its button.
+- YouTube sometimes played without sound until you paused, played and reloaded a few times. A tab that woke up from sleep stayed silent for 8 seconds whatever you did (with no mute icon); now the sound comes on the moment you click or press a key in it. In game mode, a video that was just starting is also no longer slowed down before its sound begins.
+- Space and the arrow keys did nothing in YouTube Shorts (or any page) opened from the new-tab page until you clicked the page: a page that loads in the tab you’re on now gets the keyboard, as in Chrome.
+- Space didn’t pause or play YouTube Shorts even after clicking (only K did). It does now.
+- Game focus no longer slows down Voicemod and other sound apps (Wave Link, FxSound, EarTrumpet, SoundSwitch) while you play.
+
 ## 0.9.9 · Real posters in Discover
 
 *20 November 2026*
